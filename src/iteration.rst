@@ -19,8 +19,8 @@ If you are new to iteration, and want to learn more about any of the concepts pr
 I would highly recommend the Open University book “Iteration” (product code MS221 chapter B1), available second-hand from from the 
 `Open University Book Search <http://www.universitybooksearch.co.uk/>`_.
 
-Iteating real functions 
------------------------
+Plotting iteration sequences of real functions
+----------------------------------------------
 
 We can calculate the first 10 terms of the iteration sequence x_{n+1} = x_{n}*(1 - x_{n}) (n = 0, 1, 2,...),
 with initial term x_{0} = 0.5, by typing:
@@ -62,6 +62,26 @@ To make a plot of successive points in the iteration sequence above, we can type
     > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
     
 |image0|
+
+Another example is the iteration sequence x_{n+1} = cos(x_{n}) (for n = 0, 1, 2, ...), where x_{0} = 0:
+
+To make a plot of successive points in the iteration sequence above, we can type:
+
+::
+
+    > f(x) = cos(x)
+    > p = 0.0; mypoints = []; var('mypoint')
+    > mypoint = vector([p,0]); mypoints.append(mypoint)
+    > for i in range(1,10):
+         newp = f(p)
+         mypoint = vector([p,newp])
+         mypoints.append(mypoint)
+         mypoint = vector([newp,newp])
+         mypoints.append(mypoint)
+         p = newp
+    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+
+|image1|
 
 Links and Further Reading
 -------------------------
