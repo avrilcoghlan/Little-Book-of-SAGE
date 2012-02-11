@@ -110,6 +110,25 @@ for x in SAGE by typing:
 This tells us that the fixed points are x=-sqrt(3) and x=sqrt(3). It happens that x=sqrt(3) is an attracting fixed point, and the 
 sequence converges to sqrt(3) in the limit as n goes to Infinity.
 
+Sometimes, SAGE does not give us a solution to the fixed point equation. For example, for the iteration sequence x_{n+1} = cos(x_{n})
+(for n = 0, 1, 2, ...), the fixed point equation is x = cos(x). If we try to solve this in SAGE, we don't get a useful answer:
+
+::
+
+    > solve (cos(x) == x, x)
+      [x == cos(x)]
+
+In this case, we need to use the findroot() to solve the equation numerically. For example, to find
+a solution to the equation x = cos(x) in the range 0 to pi/2, we type:
+
+::
+
+    > find_root(cos(x) == x,0,pi/2)
+      0.73908513321516067
+
+This tells us that a fixed point of the iteration sequence is approximately x=0.739. It happens that x=0.739 is an attracting fixed point,
+and this iteration sequence will converge to x=0.73908513321516067 in the limit as n goes to Infinity. 
+      
 Similarly, the fixed point equation of the iteration sequence x_{n+1} = x_{n}*x_{n} - 2.4 (where n = 0, 1, 2...) is x = x*x - 2.4.
 To find the fixed points we solve the fixed point equation:
 
