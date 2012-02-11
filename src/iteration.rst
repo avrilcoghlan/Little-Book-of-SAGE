@@ -95,8 +95,8 @@ License
 The content in this book is licensed under a `Creative Commons Attribution 3.0 License
 <http://creativecommons.org/licenses/by/3.0/>`_.
 
-.. |image0| image:: ../_static/P1_image0.png
-.. |image1| image:: ../_static/P1_image1.png
+.. |image0| image:: ../_static/image0.png
+.. |image1| image:: ../_static/image1.png
             :width: 900
 
 
