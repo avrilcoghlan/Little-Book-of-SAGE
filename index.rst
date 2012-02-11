@@ -5,12 +5,12 @@ By `Avril Coghlan <http://www.ucc.ie/microbio/avrilcoghlan/>`_,
 University College Cork, Cork, Ireland. 
 Email: a.coghlan@ucc.ie
 
-This is a simple introduction to using the SAGE mathematics software.
+This is a simple introduction to using the free and Open-Source `SAGE mathematics software <http://www.sagemath.org/>`_.
 
 Contents:
 
 .. toctree::
-   :maxdepth: 6
+   :maxdepth: 2 
 
    src/iteration.rst
 
