@@ -227,6 +227,29 @@ the interval for which \|f\'(x)\| < 1, that is -1 < f\'(x) < 1 We can do this in
     > solve( f2(x) < 1, x)
       [[x < 8]]
 
+Thus, an interval of attraction for the attracting fixed point x=-2*sqrt(2) + 8 is (0, 8). 
+
+This means that if we start of with an initial value of x that is within this interval of attraction,
+for example, x_{0} = 0, the iteration sequence x_{n+1} = ((1/8)*x_{n}*x_{n}) - x_{n} + 7, will
+converge to the attracting fixed point -2*sqrt(2) + 8 (about 5.172). We can show this by plotting it:
+
+::
+
+    > f(x) = ((1/8)*x*x) - x + 7 
+    > p = 0.0; mypoints = []; var('mypoint')
+    > mypoint = vector([p,0]); mypoints.append(mypoint)
+    > for i in range(1,10):
+         newp = f(p)
+         mypoint = vector([p,newp])
+         mypoints.append(mypoint)
+         mypoint = vector([newp,newp])
+         mypoints.append(mypoint)
+         p = newp
+    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+
+|image2|
+
+
 Links and Further Reading
 -------------------------
 
@@ -263,7 +286,10 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 
 .. |image0| image:: ../_static/image0.png
 .. |image1| image:: ../_static/image1.png
-.. |image2| image:: ../_static/image1.png
+.. |image2| image:: ../_static/image2.png
+.. |image3| image:: ../_static/image1.png
+            :width: 900
+
             :width: 900
 
 
