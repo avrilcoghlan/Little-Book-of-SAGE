@@ -45,6 +45,26 @@ with initial term x_{0} = 0.5, by typing:
       (8, 0.0817767298664456)
       (9, 0.0750892963187959)
 
+To make a plot of successive points in the iteration sequence above, we can type:
+
+.. highlight:: r
+
+::
+
+    > f(x) = x*(1-x)  
+    > p = 0.5; mypoints = []; var('mypoint')
+    > mypoint = vector([p,0]); mypoints.append(mypoint)
+    > for i in range(1,10):
+         newp = f(p)
+         mypoint = vector([p,newp])
+         mypoints.append(mypoint)
+         mypoint = vector([newp,newp])
+         mypoints.append(mypoint)
+         p = newp
+    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    
+|image0|
+
 Links and Further Reading
 -------------------------
 
