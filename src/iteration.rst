@@ -1,23 +1,26 @@
 Iteration
 =========
 
-Using R for Bioinformatics 
---------------------------
+Using SAGE for Iteration 
+------------------------
 
-This booklet tells you how to use the R software to carry out some simple analyses
-that are common in bioinformatics. In particular, the focus is on computational analysis
-of biological sequence data such as genome sequences and protein sequences.
+This booklet tells you how to use the free and Open-Source `SAGE mathematics software <http://www.sagemath.org/>`_
+for studying iteration sequences.
 
-This booklet assumes that the reader has some basic knowledge of biology, but not
-necessarily of bioinformatics. The focus of the booklet is to explain simple bioinformatics
-analysis, and to explain how to carry out these analyses using R.
+To use SAGE, you first need to start the SAGE program on your computer.
+You should have already installed SAGE on your computer (if not, for instructions on how to
+install SAGE, see `the SAGE Installation Guide <http://www.sagemath.org/doc/installation/>`_).
 
-To use R, you first need to start the R program on your computer.
-You should have already installed R on your computer (if not, for instructions on how to
-install R, see `How to install R <./installr.html>`_).
+This booklet assumes that the reader has some basic knowledge of iteration, 
+and the principal focus of the booklet is not to explain iteration, 
+but rather how to study iteration sequences using SAGE.
 
-R packages for bioinformatics: Bioconductor and SeqinR
-------------------------------------------------------
+If you are new to iteration, and want to learn more about any of the concepts presented here, 
+I would highly recommend the Open University book “Iteration” (product code MS221/02), available second-hand from from the 
+`Open University Book Search <http://www.universitybooksearch.co.uk/>`_.
+
+Iteating real functions 
+-----------------------
 
 Many authors have written R packages for performing a wide variety
 of analyses. These do not come with the standard R installation,
