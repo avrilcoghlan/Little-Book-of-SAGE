@@ -210,6 +210,23 @@ Finding the interval of attraction of an attracting fixed point
 If f(x) is an attracting fixed point with an attracting fixed point a, then an "interval of attraction"
 I for fixed point a is an interval for which \|f\'(x)\| < 1. 
 
+For example, the iteration sequence x_{n+1} = ((1/8)*x_{n}*x_{n}) - x_{n} + 7, is generated
+by the real function f(x) = ((1/8)*x_{n}*x_{n}) - x_{n} + 7.
+
+We know from above that an attracting fixed point of this iteration sequence is x=-2*sqrt(2) + 8.
+
+To find the interval of attraction for the attracting fixed point x=-2*sqrt(2) + 8, we need to find
+the interval for which \|f\'(x)\| < 1, that is -1 < f\'(x) < 1 We can do this in SAGE by typing:
+
+::
+
+    > f(x) = ((1/8)*x*x) - x + 7
+    > f2(x) = diff(f(x)) 
+    > solve( -1 < f2(x), x)
+      [[x > 0]]
+    > solve( f2(x) < 1, x)
+      [[x < 8]]
+
 Links and Further Reading
 -------------------------
 
