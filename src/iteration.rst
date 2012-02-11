@@ -70,29 +70,10 @@ Links and Further Reading
 
 Some links are included here for further reading.
 
-For background reading on DNA sequence statistics, it is
-recommended to read Chapter 1 of
-*Introduction to Computational Genomics: a case studies approach*
-by Cristianini and Hahn (Cambridge University Press;
-`www.computational-genomics.net/book/ <http://www.computational-genomics.net/book/>`_).
+For background reading on iteration, I would recommend the Open University book “Iteration” (product code MS221 chapter B1), available second-hand from from the 
+`Open University Book Search <http://www.universitybooksearch.co.uk/>`_.
 
-For more in-depth information and more examples on using the SeqinR
-package for sequence analysis, look at the SeqinR documentation,
-`http://pbil.univ-lyon1.fr/software/seqinr/doc.php?lang=eng <http://pbil.univ-lyon1.fr/software/seqinr/doc.php?lang=eng>`_.
-
-There is also a very nice chapter on "Analyzing Sequences", which
-includes examples of using SeqinR for sequence analysis, in the
-book *Applied statistics for bioinformatics using R* by Krijnen
-(available online at
-`cran.r-project.org/doc/contrib/Krijnen-IntroBioInfStatistics.pdf <http://cran.r-project.org/doc/contrib/Krijnen-IntroBioInfStatistics.pdf>`_).
-
-For a more in-depth introduction to R, a good online tutorial is
-available on the "Kickstarting R" website,
-`cran.r-project.org/doc/contrib/Lemon-kickstart <http://cran.r-project.org/doc/contrib/Lemon-kickstart/>`_.
-
-There is another nice (slightly more in-depth) tutorial to R
-available on the "Introduction to R" website,
-`cran.r-project.org/doc/manuals/R-intro.html <http://cran.r-project.org/doc/manuals/R-intro.html>`_.
+For an in-depth introduction to SAGE, see the `SAGE documentation website <http://www.sagemath.org/help.html#SageStandardDoc>`_.
 
 Acknowledgements
 ----------------
@@ -101,20 +82,6 @@ Thank you to Noel O'Boyle for helping in using Sphinx, `http://sphinx.pocoo.org 
 this document, and github, `https://github.com/ <https://github.com/>`_, to store different versions of the document
 as I was writing it, and readthedocs, `http://readthedocs.org/ <http://readthedocs.org/>`_, to build and distribute
 this document.
-
-Many of the ideas for the examples and exercises for this chapter
-were inspired by the Matlab case studies on
-*Haemophilus influenzae*
-(`www.computational-genomics.net/case\_studies/haemophilus\_demo.html <http://www.computational-genomics.net/case_studies/haemophilus_demo.html>`_)
-and Bacteriophage lambda
-(`http://www.computational-genomics.net/case\_studies/lambdaphage\_demo.html <http://www.computational-genomics.net/case_studies/lambdaphage_demo.html>`_)
-from the website that accompanies the book
-*Introduction to Computational Genomics: a case studies approach*
-by Cristianini and Hahn (Cambridge University Press;
-`www.computational-genomics.net/book/ <http://www.computational-genomics.net/book/>`_).
-
-Thank you to Jean Lobry and Simon Penel for helpful advice on using
-the SeqinR package.
 
 Contact
 -------
