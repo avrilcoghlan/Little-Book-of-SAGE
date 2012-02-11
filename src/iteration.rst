@@ -1,5 +1,5 @@
-DNA Sequence Statistics
-=======================
+Iteration
+=========
 
 Using R for Bioinformatics 
 --------------------------
