@@ -25,7 +25,7 @@ Iteating real functions
 We can calculate the first 10 terms of the iteration sequence x_{n+1} = x_{n}*(1 - x_{n}) (n = 0, 1, 2,...),
 with initial term x_{0} = 0.5, by typing:
 
-.. highlight:: sage 
+.. highlight:: python
 
 ::
 
