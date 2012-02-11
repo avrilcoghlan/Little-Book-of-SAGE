@@ -158,6 +158,10 @@ this document, and github, `https://github.com/ <https://github.com/>`_, to stor
 as I was writing it, and readthedocs, `http://readthedocs.org/ <http://readthedocs.org/>`_, to build and distribute
 this document.
 
+Many of the examples in this document have been inspired by examples in the excellent Open University
+book “Iteration” (product code MS221 chapter B1), available second-hand from from the 
+`Open University Book Search <http://www.universitybooksearch.co.uk/>`_.
+
 Contact
 -------
 
