@@ -83,6 +83,44 @@ To make a plot of successive points in the iteration sequence above, we can type
 
 |image1|
 
+Finding fixed points of iteration sequences of real functions
+-------------------------------------------------------------
+
+A fixed point of an iteration sequence is a point for which x_{n+1} = x_{n}.
+
+The fixed point equation of the iteration sequence x_{n+1} = x_{n}*(1 - x_{n}) is x = x*(1-x). To find the fixed point, we can solve
+for x in SAGE by typing:
+
+::
+
+    > solve( x*(1-x) == x, x) 
+      [x == 0] 
+
+This tells us that the fixed point of iteration sequence x_{n+1} = x_{n}*(1 - x_{n}) is x=0. In this case, it happens that this is an attracting 
+fixed point, and the sequence converges to the fixed point x=0 at the limit as n goes to Infinity.
+
+Similarly, the fixed point equation of the iteration sequence x_{n+1} = 0.5*(x_{n} + (3/x_{n})) is x = 0.5*(x + (3/x)). To find the fixed point, we can solve
+for x in SAGE by typing:
+
+::
+
+    > solve( 0.5*(x + (3/x)) == x, x) 
+      [x == -sqrt(3), x == sqrt(3)]
+
+This tells us that the fixed points are x=-sqrt(3) and x=sqrt(3). It happens that x=sqrt(3) is an attracting fixed point, and the 
+sequence converges to sqrt(3) in the limit as n goes to Infinity.
+
+Similarly, the fixed point equation of the iteration sequence x_{n+1} = x_{n}*x_{n} - 2.4 (where n = 0, 1, 2...) is x = x*x - 2.4.
+To find the fixed points we solve the fixed point equation:
+
+::
+
+    > solve( (x*x) - 2.4 == x, x)
+      [x == -1/10*sqrt(265) + 1/2, x == 1/10*sqrt(265) + 1/2]
+
+That is, the fixed points are x=-1/10*sqrt(265) + 1/2 and x=1/10*sqrt(265) + 1/2. In this case, the fixed points happen to be repelling
+fixed points, and the iteration sequence tends to Infinity as n goes to Infinity.
+
 Links and Further Reading
 -------------------------
 
@@ -115,6 +153,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 
 .. |image0| image:: ../_static/image0.png
 .. |image1| image:: ../_static/image1.png
+.. |image2| image:: ../_static/image1.png
             :width: 900
 
 
