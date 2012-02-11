@@ -249,6 +249,27 @@ converge to the attracting fixed point -2*sqrt(2) + 8 (about 5.172). We can show
 
 |image2|
 
+On the other hand, if we start with an initial value of x that is outside of the interval of attraction (0, 8),
+for example, x_{0} = -3.5, then the iteration sequence will probably not converge. Let's make a plot to see:
+
+::
+
+    > f(x) = ((1/8)*x*x) - x + 7 
+    > p = -3.5; mypoints = []; var('mypoint')
+    > mypoint = vector([p,0]); mypoints.append(mypoint)
+    > for i in range(1,8):
+         newp = f(p)
+         mypoint = vector([p,newp])
+         mypoints.append(mypoint)
+         mypoint = vector([newp,newp])
+         mypoints.append(mypoint)
+         p = newp
+    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+
+|image3|
+
+In this case, the picture shows that the iteration sequence seems to be increasing very rapidly, and probably
+will tend to Infinity, as n goes to Infinity.
 
 Links and Further Reading
 -------------------------
@@ -287,7 +308,8 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image0| image:: ../_static/image0.png
 .. |image1| image:: ../_static/image1.png
 .. |image2| image:: ../_static/image2.png
-.. |image3| image:: ../_static/image1.png
+.. |image3| image:: ../_static/image3.png
+.. |image300| image:: ../_static/image1.png
             :width: 900
 
 
