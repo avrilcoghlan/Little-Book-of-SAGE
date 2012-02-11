@@ -25,7 +25,7 @@ Iteating real functions
 We can calculate the first 10 terms of the iteration sequence x_{n+1} = x_{n}*(1 - x_{n}) (n = 0, 1, 2,...),
 with initial term x_{0} = 0.5, by typing:
 
-.. highlight:: r
+.. highlight:: sage 
 
 ::
 
@@ -46,8 +46,6 @@ with initial term x_{0} = 0.5, by typing:
       (9, 0.0750892963187959)
 
 To make a plot of successive points in the iteration sequence above, we can type:
-
-.. highlight:: r
 
 ::
 
