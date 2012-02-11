@@ -1,31 +1,18 @@
-Welcome to a Little Book of R for Bioinformatics!
-=================================================
+Welcome to a Little Book of SAGE!
+=================================
 
 By `Avril Coghlan <http://www.ucc.ie/microbio/avrilcoghlan/>`_,
 University College Cork, Cork, Ireland. 
 Email: a.coghlan@ucc.ie
 
-This is a simple introduction to bioinformatics, with a focus on genome analysis, using the R statistics software.
-
-To encourage research into neglected tropical diseases such as leprosy, Chagas disease, trachoma, schistosomiasis etc., 
-most of the examples in this booklet are for analysis of the genomes of the organisms that cause these diseases.
-
-There is a pdf version of this booklet available at
-`http://media.readthedocs.org/pdf/a-little-book-of-r-for-bioinformatics/latest/a-little-book-of-r-for-bioinformatics.pdf <http://media.readthedocs.org/pdf/a-little-book-of-r-for-bioinformatics/latest/a-little-book-of-r-for-bioinformatics.pdf>`_. 
+This is a simple introduction to using the SAGE mathematics software.
 
 Contents:
 
 .. toctree::
    :maxdepth: 6
 
-   src/installr.rst
-   src/chapter0.rst
-   src/chapter1.rst
-   src/chapter1_answers.rst
-   src/chapter2.rst
-   src/chapter2_answers.rst
-   src/chapter3.rst
-   src/chapter3_answers.rst
+   src/iteration.rst
 
 Acknowledgements
 ----------------
