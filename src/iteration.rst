@@ -290,6 +290,5 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image3| image:: ../_static/image1.png
             :width: 900
 
-            :width: 900
 
 
