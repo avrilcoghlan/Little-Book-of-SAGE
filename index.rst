@@ -10,7 +10,7 @@ This is a simple introduction to using the free and Open-Source `SAGE mathematic
 Contents:
 
 .. toctree::
-   :maxdepth: 2 
+   :maxdepth: 1 
 
    src/iteration.rst
 
