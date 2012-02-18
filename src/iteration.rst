@@ -535,7 +535,7 @@ Finding p-cycles of a real function
 
 Some real functions have cycles that are longer than two, for example, the cycle 
 
-::
+.. math::
 
     x_{n+1} = x_{n}^2 - 1.76 
 
