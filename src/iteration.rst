@@ -378,6 +378,66 @@ converges to the two-cycle 1, 2:
 The picture shows that iteration sequence starting with x_{0} = 2.5 does indeed converge fairly quickly to the
 super-attracting two-cycle 1, 2.
 
+Finding p-cycles of a real function
+-----------------------------------
+
+Some real functions have cycles that are longer than two, for example, the cycle 
+x_{n+1} = x_{n}^2 - 1.76 (n = 0, 1, 2...), where x_{0} = 0, has a three-cycle and
+alternates between three numbers (approximately 1.3, 0.0, and -1.8). 
+
+A real function that cycles between p numbers is said to have a p-cycle.
+
+To find the p-cycles of a real function in SAGE, we can define a SAGE function to
+find the p-cycles for us (thanks to D. S. McNeil and John Cremona of 
+`the SAGE support mailing list` <http://groups.google.com/group/sage-support/browse_thread/thread/6effba6eac2c5a4b>`_).
+for help with this):
+
+::
+
+    > def iter_apply(f0, n):
+         fs = [f0()]
+         for i in xrange(n-1):
+            last = fs[-1]
+            fs.append(f0(last))
+         return fs 
+    > def find_pcycles(f0, n):
+         fs = iter_apply(f0, n)
+         req = fs[-1] == x # defining equation of the cycle
+         roots = req.roots(ring=RR)
+         for root, mult in roots:
+            yield [fi(x=root) for fi in fs] 
+
+We can use the function find_pcycles() to find cycles of length 1 of function f(x):
+
+::
+
+    > f(x) = (x^2) - (176/100)
+    > list(find_pcycles(f, 1)) 
+      [[-0.917744687875782], 
+       [1.91774468787578]]
+
+Similarly, we can find cycles of length 2 or 3:
+
+::
+
+    > list(find_pcycles(f, 2))
+      [[0.504987562112089, -1.50498756211209], 
+       [-0.917744687875782,-0.917744687875783], 
+       [-1.50498756211209, 0.504987562112089],
+       [1.91774468787578, 1.91774468787578]]
+    > list(find_pcycles(f, 3)) 
+      [[1.33560128916887, 0.0238308036295500, -1.75943209279837],
+       [1.27545967679485, -0.133202612870383, -1.74225706392450],
+       [-0.917744687875782, -0.917744687875783, -0.917744687875782],
+       [-1.74225706392451, 1.27545967679486, -0.133202612870348],
+       [-1.75943209279837, 1.33560128916886, 0.0238308036295145],
+       [-0.133202612870345, -1.74225706392451, 1.27545967679486],
+       [0.0238308036295096, -1.75943209279837, 1.33560128916886],
+       [1.91774468787578, 1.91774468787579, 1.91774468787579]]
+
+One of the three-cycles found is 0.0238308036295096, -1.75943209279837, 1.33560128916886, which
+is approximately 0.0, -1.8 and 1.3, as mentioned above.
+
 Links and Further Reading
 -------------------------
 
