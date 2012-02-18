@@ -519,9 +519,8 @@ Let's plot the iteration sequence:
 
 |image6|
 
-xxxyyyzzz
-The picture shows that iteration sequence starting with x_{0} = 2.5 does indeed converge fairly quickly to the
-super-attracting two-cycle 1, 2.
+The picture shows that iteration sequence starting with x_{0} = 0.0 does indeed 
+iterate between approximately 0.0, -1.8 and 1.3, in a three-cycle.
 
 Links and Further Reading
 -------------------------
