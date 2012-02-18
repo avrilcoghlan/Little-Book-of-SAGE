@@ -52,24 +52,33 @@ with initial term x_{0} = 0.5, by typing:
     # (8, 0.0817767298664456)
     # (9, 0.0750892963187959)
 
-To make a plot of successive points in the iteration sequence above, we can type:
+We can define a function to make a plot of successive points in an interation sequence
+defined by a real function f(x):
+
+::
+
+    def plot_iter(f0, n, x0):
+       mypoints = [] 
+       var('mypoint')
+       mypoint = vector([x0,0]) 
+       mypoints.append(mypoint)
+       for i in range(1,n):
+          newx = f(x0)
+          mypoint = vector([x0,newx])
+          mypoints.append(mypoint)
+          mypoint = vector([newx,newx])
+          mypoints.append(mypoint)
+          x0 = newx
+       myplot = points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+       myplot.show()
+
+Then, to make a plot of the first 10 successive points in the iteration sequence above, using
+an initial x value of x_{0} = 0.5, we can type:
 
 ::
 
     f(x) = x*(1-x)  
-    p = 0.5
-    mypoints = [] 
-    var('mypoint')
-    mypoint = vector([p,0]) 
-    mypoints.append(mypoint)
-    for i in range(1,10):
-       newp = f(p)
-       mypoint = vector([p,newp])
-       mypoints.append(mypoint)
-       mypoint = vector([newp,newp])
-       mypoints.append(mypoint)
-       p = newp
-    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    plot_iter(f, 10, 0.5) 
     
 |image0|
 
@@ -81,19 +90,7 @@ To make a plot of successive points in the iteration sequence above, we can type
 ::
 
     f(x) = cos(x)
-    p = 0.0 
-    mypoints = [] 
-    var('mypoint')
-    mypoint = vector([p,0]) 
-    mypoints.append(mypoint)
-    for i in range(1,10):
-       newp = f(p)
-       mypoint = vector([p,newp])
-       mypoints.append(mypoint)
-       mypoint = vector([newp,newp])
-       mypoints.append(mypoint)
-       p = newp
-    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    plot_iter(f, 10, 0.0) 
 
 |image1|
 
@@ -264,19 +261,7 @@ converge to the attracting fixed point -2*sqrt(2) + 8 (about 5.172). We can show
 ::
 
     f(x) = ((1/8)*x*x) - x + 7 
-    p = 0.0 
-    mypoints = []
-    var('mypoint')
-    mypoint = vector([p,0]) 
-    mypoints.append(mypoint)
-    for i in range(1,10):
-       newp = f(p)
-       mypoint = vector([p,newp])
-       mypoints.append(mypoint)
-       mypoint = vector([newp,newp])
-       mypoints.append(mypoint)
-       p = newp
-    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    plot_iter(f, 10, 0.0)
 
 |image2|
 
@@ -286,19 +271,7 @@ for example, x_{0} = -3.5, then the iteration sequence will probably not converg
 ::
 
     f(x) = ((1/8)*x*x) - x + 7 
-    p = -3.5 
-    mypoints = []
-    var('mypoint')
-    mypoint = vector([p,0]) 
-    mypoints.append(mypoint)
-    for i in range(1,8):
-       newp = f(p)
-       mypoint = vector([p,newp])
-       mypoints.append(mypoint)
-       mypoint = vector([newp,newp])
-       mypoints.append(mypoint)
-       p = newp
-    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    plot_iter(f, 8, -3.5)
 
 |image3|
 
@@ -368,19 +341,7 @@ sequence in SAGE:
 ::
 
     f(x) = -(x*x) + (2*x) + 1
-    p = 2.0
-    mypoints = [] 
-    var('mypoint')
-    mypoint = vector([p,0])
-    mypoints.append(mypoint)
-    for i in range(1,10):
-       newp = f(p)
-       mypoint = vector([p,newp])
-       mypoints.append(mypoint)
-       mypoint = vector([newp,newp])
-       mypoints.append(mypoint)
-       p = newp
-    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    plot_iter(f, 10, 2.0)
 
 |image4|
 
@@ -416,19 +377,7 @@ converges to the two-cycle 1, 2:
 ::
 
     f(x) = -(x*x) + (2*x) + 1
-    p = 2.5 
-    mypoints = []
-    var('mypoint')
-    mypoint = vector([p,0])
-    mypoints.append(mypoint)
-    for i in range(1,30):
-       newp = f(p)
-       mypoint = vector([p,newp])
-       mypoints.append(mypoint)
-       mypoint = vector([newp,newp])
-       mypoints.append(mypoint)
-       p = newp
-    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    plot_iter(f, 30, 2.5)
 
 |image5|
 
@@ -503,19 +452,7 @@ Let's plot the iteration sequence:
 ::
 
     f(x) = (x^2) - (176/100)
-    p = 0.0 
-    mypoints = []
-    var('mypoint')
-    mypoint = vector([p,0]) 
-    mypoints.append(mypoint)
-    for i in range(1,30):
-       newp = f(p)
-       mypoint = vector([p,newp])
-       mypoints.append(mypoint)
-       mypoint = vector([newp,newp])
-       mypoints.append(mypoint)
-       p = newp
-    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    plot_iter(f, 30, 0.0)
 
 |image6|
 
