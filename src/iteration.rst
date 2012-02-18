@@ -27,8 +27,6 @@ The iteration sequence x_{n+1} = x_{n}*(1 - x_{n}) (n = 0, 1, 2,...) is generate
 We can calculate the first 10 terms of the iteration sequence x_{n+1} = x_{n}*(1 - x_{n}) (n = 0, 1, 2,...),
 with initial term x_{0} = 0.5, by typing:
 
-.. highlight:: R 
-
 ::
 
     > f(x) = x*(1-x)       
@@ -278,7 +276,8 @@ will tend to Infinity, as n goes to Infinity.
 Finding two-cycles of an interation sequence generated using a real function
 ----------------------------------------------------------------------------
 
-The numbers a and b form a "two-cycle" of a real function f(x) if: f(a) = b, and f(b) = a.
+The numbers a and b form a "two-cycle" of a real function f(x) if: f(a) = b, and f(b) = a,
+and a and b are distinct numbers.
 
 For such a two-cycle, since f(b) = a, it is also true that f(f(a)) = a.
 Likewise, since f(a) = b, it is also true that f(f(b)) = b. 
@@ -341,10 +340,16 @@ sequence in SAGE:
 
 |image4|
 
+In general, the solutions of the two-cycle equation f(f(x))=x are either fixed points of f(x) or
+members of two-cycles of f(x).
+
 Classifying two-cycles of interation sequences of real functions
 ----------------------------------------------------------------
 
 A two-cycle a, b of an iteration sequence could be either attracting, repelling or indifferent.
+
+If \|f'(a) * f'(b)\| < 1, the two-cycle is attracting, if \|f'(a) * f'(b)\| > 1, it is repelling,
+and if \|f'(a) * f'(b)\| = 1, it is indifferent.
 
 To find out, we find \|f\'(a) * f\'(b)\|. For example, to find out whether the two-cycle 1, 2 of 
 f(x) = -x^2 + 2x + 1 is attracting, repelling or indifferent, we type:
@@ -442,6 +447,28 @@ Similarly, we can find cycles of length 2 or 3:
 One of the three-cycles found is 0.0238308036295096, -1.75943209279837, 1.33560128916886, which
 is approximately 0.0, -1.8 and 1.3, as mentioned above.
 
+Let's plot the iteration sequence:
+
+::
+
+    > f(x) = (x^2) - (176/100)
+    > p = 0.0; mypoints = []; var('mypoint')
+    > mypoint = vector([p,0]); mypoints.append(mypoint)
+    > for i in range(1,30):
+         newp = f(p)
+         mypoint = vector([p,newp])
+         mypoints.append(mypoint)
+         mypoint = vector([newp,newp])
+         mypoints.append(mypoint)
+         p = newp
+    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+
+|image6|
+
+xxxyyyzzz
+The picture shows that iteration sequence starting with x_{0} = 2.5 does indeed converge fairly quickly to the
+super-attracting two-cycle 1, 2.
+
 Links and Further Reading
 -------------------------
 
@@ -482,6 +509,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image3| image:: ../_static/image3.png
 .. |image4| image:: ../_static/image4.png
 .. |image5| image:: ../_static/image5.png
+.. |image6| image:: ../_static/image6.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
