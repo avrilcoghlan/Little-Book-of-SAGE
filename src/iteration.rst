@@ -1,9 +1,6 @@
 Sequences obtained by iteration of continuous real functions 
 ============================================================
 
-xxx same example so make function to call
-xxx ensure python not on multiple lines
-xxx remove > so get colour, put output as comment
 xxx change maths to get nice maths
 
 Using SAGE for Iteration 
