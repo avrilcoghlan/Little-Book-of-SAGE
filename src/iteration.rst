@@ -389,7 +389,7 @@ A real function that cycles between p numbers is said to have a p-cycle.
 
 To find the p-cycles of a real function in SAGE, we can define a SAGE function to
 find the p-cycles for us (thanks to D. S. McNeil and John Cremona of 
-`the SAGE support mailing list` <http://groups.google.com/group/sage-support/browse_thread/thread/6effba6eac2c5a4b>`_).
+`the SAGE support mailing list <http://groups.google.com/group/sage-support/browse_thread/thread/6effba6eac2c5a4b>`_).
 for help with this):
 
 ::
