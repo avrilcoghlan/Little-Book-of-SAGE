@@ -1,6 +1,11 @@
 Sequences obtained by iteration of continuous real functions 
 ============================================================
 
+xxx same example so make function to call
+xxx ensure python not on multiple lines
+xxx remove > so get colour, put output as comment
+xxx change maths to get nice maths
+
 Using SAGE for Iteration 
 ------------------------
 
@@ -30,7 +35,8 @@ with initial term x_{0} = 0.5, by typing:
 ::
 
     f(x) = x*(1-x)       
-    p = 0.5; print(0,p)
+    p = 0.5 
+    print(0,p)
     for i in range(1,10):
        newp = f(p)
        print(i,newp)
@@ -51,8 +57,11 @@ To make a plot of successive points in the iteration sequence above, we can type
 ::
 
     f(x) = x*(1-x)  
-    p = 0.5; mypoints = []; var('mypoint')
-    mypoint = vector([p,0]); mypoints.append(mypoint)
+    p = 0.5
+    mypoints = [] 
+    var('mypoint')
+    mypoint = vector([p,0]) 
+    mypoints.append(mypoint)
     for i in range(1,10):
        newp = f(p)
        mypoint = vector([p,newp])
@@ -71,17 +80,20 @@ To make a plot of successive points in the iteration sequence above, we can type
 
 ::
 
-    > f(x) = cos(x)
-    > p = 0.0; mypoints = []; var('mypoint')
-    > mypoint = vector([p,0]); mypoints.append(mypoint)
-    > for i in range(1,10):
-         newp = f(p)
-         mypoint = vector([p,newp])
-         mypoints.append(mypoint)
-         mypoint = vector([newp,newp])
-         mypoints.append(mypoint)
-         p = newp
-    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    f(x) = cos(x)
+    p = 0.0 
+    mypoints = [] 
+    var('mypoint')
+    mypoint = vector([p,0]) 
+    mypoints.append(mypoint)
+    for i in range(1,10):
+       newp = f(p)
+       mypoint = vector([p,newp])
+       mypoints.append(mypoint)
+       mypoint = vector([newp,newp])
+       mypoints.append(mypoint)
+       p = newp
+    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
 
 |image1|
 
@@ -98,8 +110,9 @@ To find the fixed point, we can solve for x in SAGE by typing:
 
 ::
 
-    > solve( x*(1-x) == x, x) 
-      [x == 0] 
+    solve( x*(1-x) == x, x) 
+    # Output: 
+    # [x == 0] 
 
 This tells us that the fixed point of iteration sequence x_{n+1} = x_{n}*(1 - x_{n}) is x=0. In this case, it happens that this is an attracting 
 fixed point, and the sequence converges to the fixed point x=0 at the limit as n goes to Infinity.
@@ -109,8 +122,9 @@ for x in SAGE by typing:
 
 ::
 
-    > solve( 0.5*(x + (3/x)) == x, x) 
-      [x == -sqrt(3), x == sqrt(3)]
+    solve( 0.5*(x + (3/x)) == x, x) 
+    # Output: 
+    # [x == -sqrt(3), x == sqrt(3)]
 
 This tells us that the fixed points are x=-sqrt(3) and x=sqrt(3). It happens that x=sqrt(3) is an attracting fixed point, and the 
 sequence converges to sqrt(3) in the limit as n goes to Infinity.
@@ -120,16 +134,18 @@ Sometimes, SAGE does not give us a solution to the fixed point equation. For exa
 
 ::
 
-    > solve (cos(x) == x, x)
-      [x == cos(x)]
+    solve (cos(x) == x, x)
+    # Output: 
+    # [x == cos(x)]
 
 In this case, we need to use the find_root() to solve the equation numerically. For example, to find
 a solution to the equation x = cos(x) in the range 0 to pi/2, we type:
 
 ::
 
-    > find_root(cos(x) == x,0,pi/2)
-      0.73908513321516067
+    find_root(cos(x) == x,0,pi/2)
+    # Output: 
+    # 0.73908513321516067
 
 This tells us that a fixed point of the iteration sequence is approximately x=0.739. It happens that x=0.739 is an attracting fixed point,
 and this iteration sequence will converge to x=0.73908513321516067 in the limit as n goes to Infinity. 
@@ -139,8 +155,9 @@ To find the fixed points we solve the fixed point equation:
 
 ::
 
-    > solve( (x*x) - 2.4 == x, x)
-      [x == -1/10*sqrt(265) + 1/2, x == 1/10*sqrt(265) + 1/2]
+    solve( (x*x) - 2.4 == x, x)
+    # Output: 
+    # [x == -1/10*sqrt(265) + 1/2, x == 1/10*sqrt(265) + 1/2]
 
 That is, the fixed points are x=-1/10*sqrt(265) + 1/2 and x=1/10*sqrt(265) + 1/2. In this case, the fixed points happen to be repelling
 fixed points, and the iteration sequence tends to Infinity as n goes to Infinity.
@@ -162,8 +179,9 @@ x = ((1/8)*x*x) - x + 7, and we can solve it by typing:
 
 ::
 
-    > solve( ((1/8)*x*x) - x + 7 == x, x)
-      [x == -2*sqrt(2) + 8, x == 2*sqrt(2) + 8]
+    solve( ((1/8)*x*x) - x + 7 == x, x)
+    # Output: 
+    # [x == -2*sqrt(2) + 8, x == 2*sqrt(2) + 8]
 
 This tells us that there are two fixed points, x=-2*sqrt(2) + 8, and x=2*sqrt(2) + 8.
 
@@ -174,29 +192,34 @@ The gradient of the function can be found by differentiating f(x), that is, find
       
 ::
 
-    > f(x) = ((1/8)*x*x) - x + 7
-    > diff(f(x)) 
-      1/4*x - 1
+    f(x) = ((1/8)*x*x) - x + 7
+    diff(f(x)) 
+    # Output: 
+    # 1/4*x - 1
 
 Therefore, we can calculate the gradient at each fixed point by calculating the value of f'(x) at each
 fixed point:
 
 ::
 
-    > f2(x) = diff(f(x)) 
-    > f2(-2*sqrt(2) + 8)
-      -1/2*sqrt(2) + 1
-    > f2(2*sqrt(2) + 8)
-      1/2*sqrt(2) + 1
+    f2(x) = diff(f(x)) 
+    f2(-2*sqrt(2) + 8)
+    # Output: 
+    # -1/2*sqrt(2) + 1
+    f2(2*sqrt(2) + 8)
+    # Output: 
+    # 1/2*sqrt(2) + 1
 
 We probably would like to round these values to three decimal places, by typing:
 
 ::
 
-    > round(-1/2*sqrt(2) + 1,3)
-      0.293
-    > round(1/2*sqrt(2) + 1,3)
-      1.707
+    round(-1/2*sqrt(2) + 1,3)
+    # Output: 
+    # 0.293
+    round(1/2*sqrt(2) + 1,3)
+    # Output: 
+    # 1.707
 
 That is, the gradient of the function f(x) at the fixed point x=-2*sqrt(2) + 8
 is about 0.293. The absolute value of 0.293 is less than 1, so x=-2*sqrt(2) + 8
@@ -223,12 +246,14 @@ the interval for which \|f\'(x)\| < 1, that is -1 < f\'(x) < 1 We can do this in
 
 ::
 
-    > f(x) = ((1/8)*x*x) - x + 7
-    > f2(x) = diff(f(x)) 
-    > solve( -1 < f2(x), x)
-      [[x > 0]]
-    > solve( f2(x) < 1, x)
-      [[x < 8]]
+    f(x) = ((1/8)*x*x) - x + 7
+    f2(x) = diff(f(x)) 
+    solve( -1 < f2(x), x)
+    # Output: 
+    # [[x > 0]]
+    solve( f2(x) < 1, x)
+    # Output: 
+    # [[x < 8]]
 
 Thus, an interval of attraction for the attracting fixed point x=-2*sqrt(2) + 8 is (0, 8). 
 
@@ -238,17 +263,20 @@ converge to the attracting fixed point -2*sqrt(2) + 8 (about 5.172). We can show
 
 ::
 
-    > f(x) = ((1/8)*x*x) - x + 7 
-    > p = 0.0; mypoints = []; var('mypoint')
-    > mypoint = vector([p,0]); mypoints.append(mypoint)
-    > for i in range(1,10):
-         newp = f(p)
-         mypoint = vector([p,newp])
-         mypoints.append(mypoint)
-         mypoint = vector([newp,newp])
-         mypoints.append(mypoint)
-         p = newp
-    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    f(x) = ((1/8)*x*x) - x + 7 
+    p = 0.0 
+    mypoints = []
+    var('mypoint')
+    mypoint = vector([p,0]) 
+    mypoints.append(mypoint)
+    for i in range(1,10):
+       newp = f(p)
+       mypoint = vector([p,newp])
+       mypoints.append(mypoint)
+       mypoint = vector([newp,newp])
+       mypoints.append(mypoint)
+       p = newp
+    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
 
 |image2|
 
@@ -257,17 +285,20 @@ for example, x_{0} = -3.5, then the iteration sequence will probably not converg
 
 ::
 
-    > f(x) = ((1/8)*x*x) - x + 7 
-    > p = -3.5; mypoints = []; var('mypoint')
-    > mypoint = vector([p,0]); mypoints.append(mypoint)
-    > for i in range(1,8):
-         newp = f(p)
-         mypoint = vector([p,newp])
-         mypoints.append(mypoint)
-         mypoint = vector([newp,newp])
-         mypoints.append(mypoint)
-         p = newp
-    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    f(x) = ((1/8)*x*x) - x + 7 
+    p = -3.5 
+    mypoints = []
+    var('mypoint')
+    mypoint = vector([p,0]) 
+    mypoints.append(mypoint)
+    for i in range(1,8):
+       newp = f(p)
+       mypoint = vector([p,newp])
+       mypoints.append(mypoint)
+       mypoint = vector([newp,newp])
+       mypoints.append(mypoint)
+       p = newp
+    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
 
 |image3|
 
@@ -289,30 +320,39 @@ For example, to find the two-cycles of the function f(x) = -x^2 + 2x + 1, we can
 
 ::
 
-    > f(x) = -(x*x) + (2*x) + 1
-    > solve( f(f(x)) == x, x)
-      [x == 1, x == 2, x == -1/2*sqrt(5) + 1/2, x == 1/2*sqrt(5) + 1/2]
-    > round(-1/2*sqrt(5) + 1/2,3)
-      -0.618
-    > round(1/2*sqrt(5) + 1/2,3)
-      1.618
+    f(x) = -(x*x) + (2*x) + 1
+    solve( f(f(x)) == x, x)
+    # Output: 
+    # [x == 1, x == 2, x == -1/2*sqrt(5) + 1/2, x == 1/2*sqrt(5) + 1/2]
+    round(-1/2*sqrt(5) + 1/2,3)
+    # Output: 
+    # -0.618
+    round(1/2*sqrt(5) + 1/2,3)
+    # Output: 
+    # 1.618
 
 We can check the answers by seeing the values of f(x) for each of the solutions:
 
 ::
 
-    > f(1)
-      2
-    > f(2)
-      1
-    > f(-1/2*sqrt(5) + 1/2)
-      -1/4*(sqrt(5) - 1)^2 - sqrt(5) + 2
-    > round(-1/4*(sqrt(5) - 1)^2 - sqrt(5) + 2,3)
-      -0.618
-    > f(1/2*sqrt(5) + 1/2)
-      -1/4*(sqrt(5) + 1)^2 + sqrt(5) + 2
-    > round(-1/4*(sqrt(5) + 1)^2 + sqrt(5) + 2,3)
-      1.618
+    f(1)
+    # Output: 
+    # 2
+    f(2)
+    # Output: 
+    #  1
+    f(-1/2*sqrt(5) + 1/2)
+    # Output: 
+    # -1/4*(sqrt(5) - 1)^2 - sqrt(5) + 2
+    round(-1/4*(sqrt(5) - 1)^2 - sqrt(5) + 2,3)
+    # Output: 
+    # -0.618
+    f(1/2*sqrt(5) + 1/2)
+    # Output: 
+    # -1/4*(sqrt(5) + 1)^2 + sqrt(5) + 2
+    round(-1/4*(sqrt(5) + 1)^2 + sqrt(5) + 2,3)
+    # Output: 
+    # 1.618
 
 This tells us that a=2 and b=1 is a two-cycle of the function f(x) = -x^2 + 2x + 1.
 
@@ -327,17 +367,20 @@ sequence in SAGE:
 
 ::
 
-    > f(x) = -(x*x) + (2*x) + 1
-    > p = 2.0; mypoints = []; var('mypoint')
-    > mypoint = vector([p,0]); mypoints.append(mypoint)
-    > for i in range(1,10):
-         newp = f(p)
-         mypoint = vector([p,newp])
-         mypoints.append(mypoint)
-         mypoint = vector([newp,newp])
-         mypoints.append(mypoint)
-         p = newp
-    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    f(x) = -(x*x) + (2*x) + 1
+    p = 2.0
+    mypoints = [] 
+    var('mypoint')
+    mypoint = vector([p,0])
+    mypoints.append(mypoint)
+    for i in range(1,10):
+       newp = f(p)
+       mypoint = vector([p,newp])
+       mypoints.append(mypoint)
+       mypoint = vector([newp,newp])
+       mypoints.append(mypoint)
+       p = newp
+    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
 
 |image4|
 
@@ -357,10 +400,11 @@ f(x) = -x^2 + 2x + 1 is attracting, repelling or indifferent, we type:
 
 ::
 
-    > f(x) = -(x*x) + (2*x) + 1
-    > f2(x) = diff(f(x))
-    > f2(1) * f2(2) 
-      0
+    f(x) = -(x*x) + (2*x) + 1
+    f2(x) = diff(f(x))
+    f2(1) * f2(2) 
+    # Output: 
+    # 0
 
 Here we find that \|f\'(a) * f\'(b)\| is 0, so the two-cycle 1, 2 is super-attracting. This means that
 the iteration sequence generated by function f(x), which starts at a nearby x-value, 
@@ -371,17 +415,20 @@ converges to the two-cycle 1, 2:
 
 ::
 
-    > f(x) = -(x*x) + (2*x) + 1
-    > p = 2.5; mypoints = []; var('mypoint')
-    > mypoint = vector([p,0]); mypoints.append(mypoint)
-    > for i in range(1,30):
-         newp = f(p)
-         mypoint = vector([p,newp])
-         mypoints.append(mypoint)
-         mypoint = vector([newp,newp])
-         mypoints.append(mypoint)
-         p = newp
-    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    f(x) = -(x*x) + (2*x) + 1
+    p = 2.5 
+    mypoints = []
+    var('mypoint')
+    mypoint = vector([p,0])
+    mypoints.append(mypoint)
+    for i in range(1,30):
+       newp = f(p)
+       mypoint = vector([p,newp])
+       mypoints.append(mypoint)
+       mypoint = vector([newp,newp])
+       mypoints.append(mypoint)
+       p = newp
+    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
 
 |image5|
 
@@ -404,46 +451,49 @@ for help with this):
 
 ::
 
-    > def iter_apply(f0, n):
-         fs = [f0()]
-         for i in xrange(n-1):
-            last = fs[-1]
-            fs.append(f0(last))
-         return fs 
-    > def find_pcycles(f0, n):
-         fs = iter_apply(f0, n)
-         req = fs[-1] == x # defining equation of the cycle
-         roots = req.roots(ring=RR)
-         for root, mult in roots:
-            yield [fi(x=root) for fi in fs] 
+    def iter_apply(f0, n):
+       fs = [f0()]
+       for i in xrange(n-1):
+          last = fs[-1]
+          fs.append(f0(last))
+       return fs 
+    def find_pcycles(f0, n):
+       fs = iter_apply(f0, n)
+       req = fs[-1] == x # defining equation of the cycle
+       roots = req.roots(ring=RR)
+       for root, mult in roots:
+          yield [fi(x=root) for fi in fs] 
 
 We can use the function find_pcycles() to find cycles of length 1 of function f(x):
 
 ::
 
-    > f(x) = (x^2) - (176/100)
-    > list(find_pcycles(f, 1)) 
-      [[-0.917744687875782], 
-       [1.91774468787578]]
+    f(x) = (x^2) - (176/100)
+    list(find_pcycles(f, 1)) 
+    # Output: 
+    # [[-0.917744687875782], 
+    #  [1.91774468787578]]
 
 Similarly, we can find cycles of length 2 or 3:
 
 ::
 
-    > list(find_pcycles(f, 2))
-      [[0.504987562112089, -1.50498756211209], 
-       [-0.917744687875782,-0.917744687875783], 
-       [-1.50498756211209, 0.504987562112089],
-       [1.91774468787578, 1.91774468787578]]
-    > list(find_pcycles(f, 3)) 
-      [[1.33560128916887, 0.0238308036295500, -1.75943209279837],
-       [1.27545967679485, -0.133202612870383, -1.74225706392450],
-       [-0.917744687875782, -0.917744687875783, -0.917744687875782],
-       [-1.74225706392451, 1.27545967679486, -0.133202612870348],
-       [-1.75943209279837, 1.33560128916886, 0.0238308036295145],
-       [-0.133202612870345, -1.74225706392451, 1.27545967679486],
-       [0.0238308036295096, -1.75943209279837, 1.33560128916886],
-       [1.91774468787578, 1.91774468787579, 1.91774468787579]]
+    list(find_pcycles(f, 2))
+    # Output:
+    # [[0.504987562112089, -1.50498756211209], 
+    #  [-0.917744687875782,-0.917744687875783], 
+    #  [-1.50498756211209, 0.504987562112089],
+    #  [1.91774468787578, 1.91774468787578]]
+    list(find_pcycles(f, 3)) 
+    # Output:
+    #  [[1.33560128916887, 0.0238308036295500, -1.75943209279837],
+    #   [1.27545967679485, -0.133202612870383, -1.74225706392450],
+    #   [-0.917744687875782, -0.917744687875783, -0.917744687875782],
+    #   [-1.74225706392451, 1.27545967679486, -0.133202612870348],
+    #   [-1.75943209279837, 1.33560128916886, 0.0238308036295145],
+    #   [-0.133202612870345, -1.74225706392451, 1.27545967679486],
+    #   [0.0238308036295096, -1.75943209279837, 1.33560128916886],
+    #   [1.91774468787578, 1.91774468787579, 1.91774468787579]]
 
 One of the three-cycles found is 0.0238308036295096, -1.75943209279837, 1.33560128916886, which
 is approximately 0.0, -1.8 and 1.3, as mentioned above.
@@ -452,17 +502,20 @@ Let's plot the iteration sequence:
 
 ::
 
-    > f(x) = (x^2) - (176/100)
-    > p = 0.0; mypoints = []; var('mypoint')
-    > mypoint = vector([p,0]); mypoints.append(mypoint)
-    > for i in range(1,30):
-         newp = f(p)
-         mypoint = vector([p,newp])
-         mypoints.append(mypoint)
-         mypoint = vector([newp,newp])
-         mypoints.append(mypoint)
-         p = newp
-    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    f(x) = (x^2) - (176/100)
+    p = 0.0 
+    mypoints = []
+    var('mypoint')
+    mypoint = vector([p,0]) 
+    mypoints.append(mypoint)
+    for i in range(1,30):
+       newp = f(p)
+       mypoint = vector([p,newp])
+       mypoints.append(mypoint)
+       mypoint = vector([newp,newp])
+       mypoints.append(mypoint)
+       p = newp
+    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
 
 |image6|
 
