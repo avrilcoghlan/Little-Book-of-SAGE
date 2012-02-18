@@ -29,12 +29,12 @@ with initial term x_{0} = 0.5, by typing:
 
 ::
 
-    > f(x) = x*(1-x)       
-    > p = 0.5; print(0,p)
-    > for i in range(1,10):
-         newp = f(p)
-         print(i,newp)
-         p = newp
+    >>... f(x) = x*(1-x)       
+    >>... p = 0.5; print(0,p)
+    >>... for i in range(1,10):
+             newp = f(p)
+             print(i,newp)
+             p = newp
       (1, 0.250000000000000)
       (2, 0.187500000000000)
       (3, 0.152343750000000)
@@ -49,17 +49,17 @@ To make a plot of successive points in the iteration sequence above, we can type
 
 ::
 
-    > f(x) = x*(1-x)  
-    > p = 0.5; mypoints = []; var('mypoint')
-    > mypoint = vector([p,0]); mypoints.append(mypoint)
-    > for i in range(1,10):
-         newp = f(p)
-         mypoint = vector([p,newp])
-         mypoints.append(mypoint)
-         mypoint = vector([newp,newp])
-         mypoints.append(mypoint)
-         p = newp
-    > points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
+    f(x) = x*(1-x)  
+    p = 0.5; mypoints = []; var('mypoint')
+    mypoint = vector([p,0]); mypoints.append(mypoint)
+    for i in range(1,10):
+       newp = f(p)
+       mypoint = vector([p,newp])
+       mypoints.append(mypoint)
+       mypoint = vector([newp,newp])
+       mypoints.append(mypoint)
+       p = newp
+    points(mypoints, rgbcolor=(0.2,0.6, 0.1), pointsize=30) + line(mypoints)
     
 |image0|
 
