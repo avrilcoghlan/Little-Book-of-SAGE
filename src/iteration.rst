@@ -534,7 +534,12 @@ Finding p-cycles of a real function
 -----------------------------------
 
 Some real functions have cycles that are longer than two, for example, the cycle 
-x_{n+1} = x_{n}^2 - 1.76 (n = 0, 1, 2...), where x_{0} = 0, has a three-cycle and
+
+::
+
+    x_{n+1} = x_{n}^2 - 1.76 
+
+(n = 0, 1, 2...), where the initial value of x = 0, has a three-cycle, and so
 alternates between three numbers (approximately 1.3, 0.0, and -1.8). 
 
 A real function that cycles between p numbers is said to have a p-cycle.
@@ -602,7 +607,7 @@ Let's plot the iteration sequence:
 
 |image6|
 
-The picture shows that iteration sequence starting with x_{0} = 0.0 does indeed 
+The picture shows that iteration sequence starting with an initial value of x of x = 0.0 does indeed 
 iterate between approximately 0.0, -1.8 and 1.3, in a three-cycle.
 
 Links and Further Reading
