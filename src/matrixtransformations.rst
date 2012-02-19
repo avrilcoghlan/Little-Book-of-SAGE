@@ -196,6 +196,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image7| image:: ../_static/image7.png
 .. |image9| image:: ../_static/image9.png
 .. |image10| image:: ../_static/image10.png
+.. |image11| image:: ../_static/image11.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
