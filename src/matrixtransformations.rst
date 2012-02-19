@@ -68,7 +68,7 @@ we can type in SAGE:
 
 |image7|
 
-We can carry out a translation of a shape by addition of a vector a = (p, q). For example, the
+We can carry out a translation of a polygon, by addition of a vector a = (p, q). For example, the
 vector a = (2, 3) will move a shape two units to the right and three units up. We can apply
 this transformation to the triangle above, and plot the result, by typing:
 
@@ -82,6 +82,31 @@ this transformation to the triangle above, and plot the result, by typing:
     polygon(mypoints2)
 
 |image9|
+
+Let's define a function to carry out a translation of a polygon, by addition of a
+vector a = (p, q), and to plot the original and the tranformed polygons:
+
+::
+
+    def plot_translated_polygon(mypoints, a):
+       g = Graphics()
+       mypoints2 = []
+       for mypoint in mypoints:
+          mypoint2 = mypoint + a
+          mypoints2.append(mypoint2)
+       # plot the original polygon in blue, and the new one in green:
+       g = g + polygon(mypoints) + polygon(mypoints2,rgbcolor=(1/8, 3/4, 1/2))
+       g.show()
+
+We can then use it to plot the original triangle above, and the new triangle
+obtained by translating it two units to the right and three units upwards:
+
+::
+
+    a = vector([2, 3])
+    plot_translated_polygon(mypoints, a) 
+
+|image10|
 
 Links and Further Reading
 -------------------------
@@ -120,6 +145,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 
 .. |image7| image:: ../_static/image7.png
 .. |image9| image:: ../_static/image9.png
+.. |image10| image:: ../_static/image10.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
