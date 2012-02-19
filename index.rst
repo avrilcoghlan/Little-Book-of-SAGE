@@ -13,6 +13,7 @@ Contents:
    :maxdepth: 1 
 
    src/iteration.rst
+   src/matrixtransformations.rst
 
 Acknowledgements
 ----------------
