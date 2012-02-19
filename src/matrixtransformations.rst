@@ -19,8 +19,8 @@ If you are new to matrix transformation, and want to learn more about any of the
 I would highly recommend the Open University book “Matrix transformations” (product code MS221 chapter B2), 
 available second-hand from from the `Open University Book Search <http://www.universitybooksearch.co.uk/>`_.
 
-Vectors and matrices in SAGE
-----------------------------
+Vectors in SAGE
+---------------
 
 We can enter vectors a and b into SAGE by typing:
 
@@ -67,6 +67,21 @@ we can type in SAGE:
     polygon(mypoints)
 
 |image7|
+
+We can carry out a translation of a shape by addition of a vector a = (p, q). For example, the
+vector a = (2, 3) will move a shape two units to the right and three units up. We can apply
+this transformation to the triangle above, and plot the result, by typing:
+
+::
+
+    a = vector([2, 3])
+    mypoints2 = []
+    for mypoint in mypoints:
+       mypoint2 = mypoint + a
+       mypoints2.append(mypoint2)
+    polygon(mypoints2)
+
+|image9|
 
 Links and Further Reading
 -------------------------
