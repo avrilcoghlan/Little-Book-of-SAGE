@@ -72,42 +72,32 @@ Translation of a polygon
 ------------------------
 
 We can carry out a translation of a polygon, by addition of a vector a = (p, q). For example, the
-vector a = (2, 3) will move a shape two units to the right and three units up. We can apply
-this transformation to the triangle above, and plot the result, by typing:
+vector a = (2, 3) will move a shape two units to the right and three units up. 
+
+Let's write a function to apply a translation to a polygon:
 
 ::
 
-    a = vector([2, 3])
-    mypoints2 = []
-    for mypoint in mypoints:
-       mypoint2 = mypoint + a
-       mypoints2.append(mypoint2)
-    polygon(mypoints2)
-
-|image9|
-
-Let's define a function to carry out a translation of a polygon, by addition of a
-vector a = (p, q), and to plot the original and the tranformed polygons:
-
-::
-
-    def plot_translated_polygon(mypoints, a):
-       g = Graphics()
+    def translate_polygon(mypoints, a):
        mypoints2 = []
        for mypoint in mypoints:
           mypoint2 = mypoint + a
           mypoints2.append(mypoint2)
-       # plot the original polygon in blue, and the new one in green:
-       g = g + polygon(mypoints) + polygon(mypoints2,rgbcolor=(1/8, 3/4, 1/2))
-       g.show()
+       return(mypoints2)
 
-We can then use it to plot the original triangle above, and the new triangle
-obtained by translating it two units to the right and three units upwards:
+We can then move the triangle defined above two units to the right and three units upwards
+by applying the transformation described by vector a:
 
 ::
 
     a = vector([2, 3])
-    plot_translated_polygon(mypoints, a) 
+    mypoints2 = translate_polygon(mypoints, a)
+
+Let's plot the original triangle (in blue) and the translated triangle (in green):
+
+::
+
+    polygon(mypoints) + polygon(mypoints2,rgbcolor=(1/8, 3/4, 1/2))
 
 |image10|
 
