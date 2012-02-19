@@ -103,6 +103,61 @@ Let's plot the original triangle (in blue) and the translated triangle (in green
 
 The original triangle is shown in blue here, and the transformed one in green.
 
+Matrices in SAGE
+----------------
+
+We can enter a matrix A into SAGE by typing:
+
+::
+
+    A = matrix([[2,1],[3,2]])
+    print(A)
+    # Output: 
+    # [2 1]
+    # [3 2]
+
+We can then do nice things like multiplying a vector by a matrix:
+
+::
+
+    a = vector([2, 3])
+    A = matrix([[2,1],[3,2]])
+    a * A
+    # (13, 8)
+
+Rotation of a polygon
+---------------------
+
+A rotation of a polygon, through an angle theta (radians) to the positive x-axis, can be obtained by
+multiplication by the matrix with rows (cos theta, -sin theta) and (sin theta, cos theta).
+
+This means that we can define a function to perform such a rotation of a polygon:
+
+::
+
+    def rotate_polygon(mypoints, theta):
+       A = matrix([[cos(theta),-(sin(theta))],[sin(theta),cos(theta)]])
+       mypoints2 = []
+       for mypoint in mypoints:
+          mypoint2 = A* mypoint
+          mypoints2.append(mypoint2)
+       return(mypoints2)
+
+Let's try rotating our triangle above by pi/4 radians (45 degrees) with respect to the positive x-axis
+
+::
+
+    mypoints3 = rotate_polygon(mypoints, pi/4)
+
+Let's plot the original triangle (in blue) and the rotated triangle (in green):
+
+::
+
+    polygon(mypoints) + polygon(mypoints3,rgbcolor=(1/8, 3/4, 1/2))
+
+|image11|
+
+
 Links and Further Reading
 -------------------------
 
