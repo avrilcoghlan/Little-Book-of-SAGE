@@ -108,6 +108,8 @@ obtained by translating it two units to the right and three units upwards:
 
 |image10|
 
+The original triangle is shown in blue here, and the transformed one in green.
+
 Links and Further Reading
 -------------------------
 
