@@ -62,7 +62,7 @@ defined by a real function f(x):
 
 ::
 
-    def plot_iter(f0, n, x0):
+    def plot_iter(f, n, x0):
        mypoints = [] 
        var('mypoint')
        mypoint = vector([x0,0]) 
@@ -609,6 +609,39 @@ Let's plot the iteration sequence:
 
 The picture shows that iteration sequence starting with an initial value of x of x = 0.0 does indeed 
 iterate between approximately 0.0, -1.8 and 1.3, in a three-cycle.
+
+And now for something pretty...
+-------------------------------
+
+Let's make a nice cobweb pattern:
+
+::
+
+    def plot_iter2(f, n, initialvalues):
+       g = Graphics()
+       for j, initialvalue in enumerate(initialvalues):
+          x0 = initialvalue
+          mypoints = [] 
+          var('mypoint')
+          mypoint = vector([x0,0]) 
+          mypoints.append(mypoint)
+          for i in range(1,n):
+             newx = f(x0)
+             mypoint = vector([x0,newx])
+             mypoints.append(mypoint)
+             mypoint = vector([newx,newx])
+             mypoints.append(mypoint)
+             x0 = newx
+          myplot = line(mypoints,color=hue(sin(j/20)),thickness=1.1)
+          g = g + myplot
+       g.show()
+    f(x) = -(x*x) + (2*x) + 1
+    initialvalues = (2.49,2.50,2.51)
+    plot_iter2(f, 30, initialvalues)
+
+|image8|
+
+I wouldn't mind a dress made out of that pattern!
 
 Links and Further Reading
 -------------------------
