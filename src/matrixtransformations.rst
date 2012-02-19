@@ -68,6 +68,9 @@ we can type in SAGE:
 
 |image7|
 
+Translation of a polygon
+------------------------
+
 We can carry out a translation of a polygon, by addition of a vector a = (p, q). For example, the
 vector a = (2, 3) will move a shape two units to the right and three units up. We can apply
 this transformation to the triangle above, and plot the result, by typing:
