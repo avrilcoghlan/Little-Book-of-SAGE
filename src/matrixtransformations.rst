@@ -64,9 +64,14 @@ we can type in SAGE:
 ::
 
     mypoints = list([p1,p2,p3])
-    polygon(mypoints)
+    P = polygon(mypoints)
+    P.set_aspect_ratio(1)
+    show(P)
 
 |image7|
+
+Note that the set_aspect_ratio() command ensures that the scale on the x-axis and y-axis of the plot
+are the same.
 
 Translation of a polygon
 ------------------------
@@ -97,7 +102,9 @@ Let's plot the original triangle (in blue) and the translated triangle (in green
 
 ::
 
-    polygon(mypoints) + polygon(mypoints2,rgbcolor=(1/8, 3/4, 1/2))
+    P = polygon(mypoints) + polygon(mypoints2,rgbcolor=(1/8, 3/4, 1/2))
+    P.set_aspect_ratio(1)
+    show(P)
 
 |image10|
 
@@ -128,8 +135,9 @@ We can then do nice things like multiplying a vector by a matrix:
 Rotation of a polygon
 ---------------------
 
-A rotation of a polygon, through an angle theta (radians) to the positive x-axis, can be obtained by
-multiplication by the matrix with rows (cos theta, -sin theta) and (sin theta, cos theta).
+A rotation of a polygon, through an angle theta (radians) anticlockwise, can be obtained by
+multiplying the matrix with rows (cos theta, -sin theta) and (sin theta, cos theta) by each point defining the polygon
+(for example, by each of the three points defining the vertices of a triangle).
 
 This means that we can define a function to perform such a rotation of a polygon:
 
@@ -143,7 +151,7 @@ This means that we can define a function to perform such a rotation of a polygon
           mypoints2.append(mypoint2)
        return(mypoints2)
 
-Let's try rotating our triangle above by pi/4 radians (45 degrees) with respect to the positive x-axis
+Let's try rotating our triangle above by pi/4 radians (45 degrees) anticlockwise:
 
 ::
 
@@ -153,10 +161,47 @@ Let's plot the original triangle (in blue) and the rotated triangle (in green):
 
 ::
 
-    polygon(mypoints) + polygon(mypoints3,rgbcolor=(1/8, 3/4, 1/2))
+    P = polygon(mypoints) + polygon(mypoints3,rgbcolor=(1/8, 3/4, 1/2))
+    P.set_aspect_ratio(1)
+    show(P)
 
 |image11|
 
+Reflection of a polygon
+-----------------------
+
+A reflection of a polygon in a line through the origin that makes an angle theta measured anticlockwise from the positive x-axis,
+can be achieved by multiplying the matrix with rows (cos(2 * theta), sin(2 * theta)) and (sin(2 * theta), -cos(2 * theta))
+by each of the points that define the polygon (eg. by each of the three vertices of a triangle).
+
+Aha! That means that we can define a function to carry out a reflection of a polygon:
+
+::
+
+    def reflect_polygon(mypoints, theta):
+       A = matrix([[cos(2*theta),sin(2*theta)],[sin(2*theta),-(cos(2*theta))]])
+       mypoints2 = []
+       for mypoint in mypoints:
+          mypoint2 = A* mypoint
+          mypoints2.append(mypoint2)
+       return(mypoints2)
+
+For example, let's reflect the triangle with vertices at (1, sqrt(3)), (sqrt(3), -1),
+and (-sqrt(3),1), through a line that makes an angle of pi/4 radians (45 degrees) with respect to the positive x-axis:
+
+::
+
+    mypoints4 = reflect_polygon(mypoints, pi/4)
+
+Now let's plot the original triangle (in blue) and the transformed triangle (in green):
+
+::
+
+    P = polygon(mypoints) + polygon(mypoints4,rgbcolor=(1/8, 3/4, 1/2))
+    P.set_aspect_ratio(1)
+    show(P)
+
+|image12|
 
 Links and Further Reading
 -------------------------
@@ -197,6 +242,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image9| image:: ../_static/image9.png
 .. |image10| image:: ../_static/image10.png
 .. |image11| image:: ../_static/image11.png
+.. |image12| image:: ../_static/image12.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
