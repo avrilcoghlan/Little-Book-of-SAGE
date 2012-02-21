@@ -249,6 +249,43 @@ We can then plot the original triangle (in blue), and the scaled triangle (in gr
 
 |image16|
 
+Similarly, we can take the unit square, which has corners at (0,0), (1,0), (1,1) and (0,1), and
+apply the scaling by factor 3 parallel to the x-axis and factor 0.5 parallel to the y-axis:
+
+
+::
+
+    p4 = vector([0,0])
+    p5 = vector([1,0])
+    p6 = vector([1,1])
+    p7 = vector([0,1])
+    mysquare = list([p4,p5,p6,p7])
+    mysquarescaled = scale_polygon(mysquare, 3, 0.5)
+    P = polygon(mysquare) + polygon(mysquarescaled,color="green")
+    P.set_aspect_ratio(1)
+    show(P)
+
+|image18|
+
+We see that the transformed polygon has height 0.5, and width 3.0, as expected.
+
+Shears parallel to a line
+-------------------------
+
+As well as translations, rotations, reflections and scalings, another type of geometric transformation
+is a shear parallel to a line. This is a transfomration that shifts each point parallel to a line,
+through a distance that is proportional to the perpendicular distance of the point from the line.
+
+A shear parallel to the x-axis can be achieved by multiplying the matrix:
+
+|image17|
+
+by each of the points of a polygon (eg. each of the vertices of a triangle). 
+This is called an x-share with factor a.
+
+
+
+
 Links and Further Reading
 -------------------------
 
@@ -296,6 +333,8 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image14| image:: ../_static/image14.png
 .. |image15| image:: ../_static/image15.png
 .. |image16| image:: ../_static/image16.png
+.. |image17| image:: ../_static/image17.png
+.. |image18| image:: ../_static/image18.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
