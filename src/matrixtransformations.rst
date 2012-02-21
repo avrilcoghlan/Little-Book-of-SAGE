@@ -311,6 +311,15 @@ through a distance that is proportional to the distance of the point from the x-
 a result, the two points (0,1) and (1,1) are moved far to the right, while the points
 (0,0) and (1,0) stay at the same place (since they are on the x-axis).
 
+A y-shear with factor a is a similar idea: each point is moved parallel to the y-axis,
+by a distance that is proportion to the distance of the point from the y-axis. We achieve
+a y-shear with factor a by multiplying the matrix:
+
+|image20|
+
+by each of the points of the polygon to which we want to apply the shear. 
+
+
 Links and Further Reading
 -------------------------
 
@@ -361,6 +370,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image17| image:: ../_static/image17.png
 .. |image18| image:: ../_static/image18.png
 .. |image19| image:: ../_static/image19.png
+.. |image20| image:: ../_static/image20.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
