@@ -222,12 +222,32 @@ by each of the points that define the polygon (for example, by each of the verti
 
 Let's define a SAGE function to scale a polygon like this:
 
-xxx
+::
+
+    def scale_polygon(mypoints, a, b):
+       A = matrix([[a,0],[0,b]])
+       mypoints2 = []
+       for mypoint in mypoints:
+          mypoint2 = A* mypoint
+          mypoints2.append(mypoint2)
+       return(mypoints2)
 
 For example, we can scale our triangle with vertices at (1, sqrt(3)), (sqrt(3), -1),
-and (-sqrt(3),1), by a factor 3 parallel to the x-axis, and by a factor 6 parallel to the y-axis by typing:
+and (-sqrt(3),1), by a factor 3 parallel to the x-axis, and by a factor 0.5 parallel to the y-axis by typing:
 
-xxx
+::
+
+    mypoints5 = scale_polygon(mypoints, 3, 0.5)
+
+We can then plot the original triangle (in blue), and the scaled triangle (in green):
+
+::
+
+    P = polygon(mypoints) + polygon(mypoints5,color="green")
+    P.set_aspect_ratio(1)
+    show(P)
+
+|image16|
 
 Links and Further Reading
 -------------------------
@@ -275,6 +295,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image13| image:: ../_static/image13.png
 .. |image14| image:: ../_static/image14.png
 .. |image15| image:: ../_static/image15.png
+.. |image16| image:: ../_static/image16.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
