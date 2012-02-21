@@ -140,8 +140,7 @@ multiplying the matrix:
 
 |image13|
 
-xxx with rows (cos theta, -sin theta) and (sin theta, cos theta) by each point defining the polygon
-(for example, by each of the three points defining the vertices of a triangle).
+by each point defining the polygon (for example, by each of the three points defining the vertices of a triangle).
 
 This means that we can define a function to perform such a rotation of a polygon:
 
@@ -175,7 +174,9 @@ Reflection of a polygon
 -----------------------
 
 A reflection of a polygon in a line through the origin that makes an angle theta measured anticlockwise from the positive x-axis,
-can be achieved by multiplying the matrix with rows (cos(2 * theta), sin(2 * theta)) and (sin(2 * theta), -cos(2 * theta))
+can be achieved by multiplying the matrix:
+|image14|
+
 by each of the points that define the polygon (eg. by each of the three vertices of a triangle).
 
 Aha! That means that we can define a function to carry out a reflection of a polygon:
@@ -267,6 +268,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image11| image:: ../_static/image11.png
 .. |image12| image:: ../_static/image12.png
 .. |image13| image:: ../_static/image13.png
+.. |image14| image:: ../_static/image14.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
