@@ -365,12 +365,33 @@ Thus, all of these geometric transformations are achieved by multiplying some ma
 
 |image22|
 
-by the points that define the polygon.
+by the points that define the polygon. Transformations that can be described by such a 2x2 matrix
+(reflections, rotations, scalings, shears) are called "linear transformations".
 
 A useful thing to know is that the transformation will
 scale the area of the polygon by a factor equal to the determinant of matrix A. 
 Furthermore, the orientation of the polygon will be preserved if the determinant of A is
 positive, and the orientation will be reversed if the determinant is negative.
+
+This means that we can define a useful function that will take a matrix A
+representing a geometric transformation as its input, and will tell you: (i) what
+sort of transformation it is (reflection/rotation/scaling/x-shear/y-shear), (ii) by
+what factor the area of the polygon will be scaled, and (iii) whether the orientation
+will be preserved or not:
+
+::
+
+    def classify_transformation(A):
+       row1col1 = A[0,0]
+       row1col2 = A[0,1]
+       row2col1 = A[1,0]
+       row2col2 = A[1,1]
+       # check if it is an x-shear:
+       if (A[0,0] == 1 and A[1,0] == 0 and A[1,1] == 1):
+          a = A[0,1]
+          type = 'x-shear'
+          print(a)
+          print(type)
 
 Links and Further Reading
 -------------------------
