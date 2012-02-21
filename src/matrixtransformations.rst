@@ -338,6 +338,40 @@ apply a y-shear with factor 4 to the unit square:
 
 |image21|
 
+Scaling of areas by geometric transformations
+---------------------------------------------
+
+We saw above that a rotation of a polygon can be achieved by multiplying the matrix
+
+|image13|
+
+by the points that define the polygon. 
+
+Similarly, a reflection of a polygon can be achieved by multiplying the matrix
+
+|image14|
+
+by the points that define the polygon.
+
+A scaling can be achieved by multiplying the matrix 
+
+|image15|
+
+by the points that define the polygon.
+
+An x-shear and a y-shear are also achieved by multiplying certain matrices by the points that define the polygon.
+
+Thus, all of these geometric transformations are achieved by multiplying some matrix:
+
+|image22|
+
+by the points that define the polygon.
+
+A useful thing to know is that the transformation will
+scale the area of the polygon by a factor equal to the determinant of matrix A. 
+Furthermore, the orientation of the polygon will be preserved if the determinant of A is
+positive, and the orientation will be reversed if the determinant is negative.
+
 Links and Further Reading
 -------------------------
 
@@ -390,6 +424,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image19| image:: ../_static/image19.png
 .. |image20| image:: ../_static/image20.png
 .. |image21| image:: ../_static/image21.png
+.. |image22| image:: ../_static/image22.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
