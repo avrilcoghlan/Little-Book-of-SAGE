@@ -102,7 +102,7 @@ Let's plot the original triangle (in blue) and the translated triangle (in green
 
 ::
 
-    P = polygon(mypoints) + polygon(mypoints2,rgbcolor=(1/8, 3/4, 1/2))
+    P = polygon(mypoints) + polygon(mypoints2,color="green")
     P.set_aspect_ratio(1)
     show(P)
 
@@ -136,7 +136,11 @@ Rotation of a polygon
 ---------------------
 
 A rotation of a polygon, through an angle theta (radians) anticlockwise, can be obtained by
-multiplying the matrix with rows (cos theta, -sin theta) and (sin theta, cos theta) by each point defining the polygon
+multiplying the matrix:
+
+|image13|
+
+xxx with rows (cos theta, -sin theta) and (sin theta, cos theta) by each point defining the polygon
 (for example, by each of the three points defining the vertices of a triangle).
 
 This means that we can define a function to perform such a rotation of a polygon:
@@ -161,7 +165,7 @@ Let's plot the original triangle (in blue) and the rotated triangle (in green):
 
 ::
 
-    P = polygon(mypoints) + polygon(mypoints3,rgbcolor=(1/8, 3/4, 1/2))
+    P = polygon(mypoints) + polygon(mypoints3,color="green")
     P.set_aspect_ratio(1)
     show(P)
 
@@ -193,15 +197,32 @@ and (-sqrt(3),1), through a line that makes an angle of pi/4 radians (45 degrees
 
     mypoints4 = reflect_polygon(mypoints, pi/4)
 
-Now let's plot the original triangle (in blue) and the transformed triangle (in green):
+Now let's plot the original triangle (in blue) and the transformed triangle (in green), with the line
+that the triangle was reflected through (in red):
 
 ::
 
-    P = polygon(mypoints) + polygon(mypoints4,rgbcolor=(1/8, 3/4, 1/2))
+    P = polygon(mypoints) + polygon(mypoints4,color="green") + plot(x, (x, -2, 2), color="red")
     P.set_aspect_ratio(1)
     show(P)
 
 |image12|
+
+Scaling of a polygon
+--------------------
+
+A scaling of a polygon by factor a parallel to the x-axis, and by factor b parallel to the y-axis, can 
+be achieved by multiplication of the matrix with rows (a, 0), and (0, b) by each of the points that
+define the polygon (for example, by each of the vertices of a triangle).
+
+Let's define a SAGE function to scale a polygon like this:
+
+xxx
+
+For example, we can scale our triangle with vertices at (1, sqrt(3)), (sqrt(3), -1),
+and (-sqrt(3),1), by a factor 3 parallel to the x-axis, and by a factor 6 parallel to the y-axis by typing:
+
+xxx
 
 Links and Further Reading
 -------------------------
@@ -216,6 +237,8 @@ For an in-depth introduction to SAGE, see the `SAGE documentation website <http:
 
 Acknowledgements
 ----------------
+
+xxx remove aknowl
 
 Thank you to Noel O'Boyle for helping in using Sphinx, `http://sphinx.pocoo.org <http://sphinx.pocoo.org>`_, to create
 this document, and github, `https://github.com/ <https://github.com/>`_, to store different versions of the document
@@ -243,6 +266,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image10| image:: ../_static/image10.png
 .. |image11| image:: ../_static/image11.png
 .. |image12| image:: ../_static/image12.png
+.. |image13| image:: ../_static/image13.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
