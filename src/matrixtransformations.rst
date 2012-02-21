@@ -319,6 +319,24 @@ a y-shear with factor a by multiplying the matrix:
 
 by each of the points of the polygon to which we want to apply the shear. 
 
+Let's define a function to apply a y-shear with factor a, and then
+apply a y-shear with factor 4 to the unit square:
+
+::
+
+    def yshear_polygon(mypoints, a):
+       A = matrix([[1,0],[a,1]])
+       mypoints2 = []
+       for mypoint in mypoints:
+          mypoint2 = A* mypoint
+          mypoints2.append(mypoint2)
+       return(mypoints2)
+    mysquareyshear = yshear_polygon(mysquare, 4)
+    P = polygon(mysquare) + polygon(mysquareyshear,color="green")
+    P.set_aspect_ratio(1)
+    show(P)
+
+|image21|
 
 Links and Further Reading
 -------------------------
@@ -371,6 +389,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image18| image:: ../_static/image18.png
 .. |image19| image:: ../_static/image19.png
 .. |image20| image:: ../_static/image20.png
+.. |image21| image:: ../_static/image21.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
