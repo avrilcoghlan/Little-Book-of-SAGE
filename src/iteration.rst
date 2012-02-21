@@ -656,9 +656,9 @@ For an in-depth introduction to SAGE, see the `SAGE documentation website <http:
 Acknowledgements
 ----------------
 
-Thank you to Noel O'Boyle for helping in using Sphinx, `http://sphinx.pocoo.org <http://sphinx.pocoo.org>`_, to create
-this document, and github, `https://github.com/ <https://github.com/>`_, to store different versions of the document
-as I was writing it, and readthedocs, `http://readthedocs.org/ <http://readthedocs.org/>`_, to build and distribute
+Thank you to Sphinx, `http://sphinx.pocoo.org <http://sphinx.pocoo.org>`_, used to create
+this document, and github, `https://github.com/ <https://github.com/>`_, used to store different versions of the document
+as I was writing it, and readthedocs, `http://readthedocs.org/ <http://readthedocs.org/>`_, used to build and distribute
 this document.
 
 Many of the examples in this document have been inspired by examples in the excellent Open University
