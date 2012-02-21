@@ -216,7 +216,7 @@ Scaling of a polygon
 A scaling of a polygon by factor a parallel to the x-axis, and by factor b parallel to the y-axis, can 
 be achieved by multiplication of the matrix:
 
-|image15.png|
+|image15|
 
 by each of the points that define the polygon (for example, by each of the vertices of a triangle).
 
@@ -248,7 +248,7 @@ this document, and github, `https://github.com/ <https://github.com/>`_, used to
 as I was writing it, and readthedocs, `http://readthedocs.org/ <http://readthedocs.org/>`_, used to build and distribute
 this document.
 
-Thank you to Roger Cortesi for `Roger's Online Equation Editor <rogercortesi.com/eqn/>`_, which I used for making some of the images
+Thank you to Roger Cortesi for `Roger's Online Equation Editor <http://rogercortesi.com/eqn/>`_, which I used for making some of the images
 of equations and matrices.  
 
 Many of the examples in this document have been inspired by examples in the excellent Open University
