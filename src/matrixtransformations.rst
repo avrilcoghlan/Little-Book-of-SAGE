@@ -175,6 +175,7 @@ Reflection of a polygon
 
 A reflection of a polygon in a line through the origin that makes an angle theta measured anticlockwise from the positive x-axis,
 can be achieved by multiplying the matrix:
+
 |image14|
 
 by each of the points that define the polygon (eg. by each of the three vertices of a triangle).
@@ -213,8 +214,11 @@ Scaling of a polygon
 --------------------
 
 A scaling of a polygon by factor a parallel to the x-axis, and by factor b parallel to the y-axis, can 
-be achieved by multiplication of the matrix with rows (a, 0), and (0, b) by each of the points that
-define the polygon (for example, by each of the vertices of a triangle).
+be achieved by multiplication of the matrix:
+
+|image15.png|
+
+by each of the points that define the polygon (for example, by each of the vertices of a triangle).
 
 Let's define a SAGE function to scale a polygon like this:
 
@@ -239,12 +243,13 @@ For an in-depth introduction to SAGE, see the `SAGE documentation website <http:
 Acknowledgements
 ----------------
 
-xxx remove aknowl
-
-Thank you to Noel O'Boyle for helping in using Sphinx, `http://sphinx.pocoo.org <http://sphinx.pocoo.org>`_, to create
-this document, and github, `https://github.com/ <https://github.com/>`_, to store different versions of the document
-as I was writing it, and readthedocs, `http://readthedocs.org/ <http://readthedocs.org/>`_, to build and distribute
+Thank you to Sphinx, `http://sphinx.pocoo.org <http://sphinx.pocoo.org>`_, used to create
+this document, and github, `https://github.com/ <https://github.com/>`_, used to store different versions of the document
+as I was writing it, and readthedocs, `http://readthedocs.org/ <http://readthedocs.org/>`_, used to build and distribute
 this document.
+
+Thank you to Roger Cortesi for `Roger's Online Equation Editor <rogercortesi.com/eqn/>`_, which I used for making some of the images
+of equations and matrices.  
 
 Many of the examples in this document have been inspired by examples in the excellent Open University
 book “Matrix transformations” (product code MS221 chapter B2), available second-hand from from the 
@@ -269,6 +274,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image12| image:: ../_static/image12.png
 .. |image13| image:: ../_static/image13.png
 .. |image14| image:: ../_static/image14.png
+.. |image15| image:: ../_static/image15.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
