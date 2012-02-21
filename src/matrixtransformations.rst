@@ -281,10 +281,35 @@ A shear parallel to the x-axis can be achieved by multiplying the matrix:
 |image17|
 
 by each of the points of a polygon (eg. each of the vertices of a triangle). 
-This is called an x-share with factor a.
+This is called an x-shear with factor a.
 
+Let's define a function to carry out an x-shear with factor a:
 
+::
 
+    def xshear_polygon(mypoints, a):
+       A = matrix([[1,a],[0,1]])
+       mypoints2 = []
+       for mypoint in mypoints:
+          mypoint2 = A* mypoint
+          mypoints2.append(mypoint2)
+       return(mypoints2)
+
+Now let's see what happens when we apply an x-shear with factor 4 to the unit square:
+
+::
+
+    mysquarexshear = xshear_polygon(mysquare, 4)
+    P = polygon(mysquare) + polygon(mysquarexshear,color="green")
+    P.set_aspect_ratio(1)
+    show(P)
+
+|image19|
+
+Wow! Each point on the polygon has been moved to the right, parallel to the x-axis,
+through a distance that is proportional to the distance of the point from the x-axis. As
+a result, the two points (0,1) and (1,1) are moved far to the right, while the points
+(0,0) and (1,0) stay at the same place (since they are on the x-axis).
 
 Links and Further Reading
 -------------------------
@@ -335,6 +360,7 @@ The content in this book is licensed under a `Creative Commons Attribution 3.0 L
 .. |image16| image:: ../_static/image16.png
 .. |image17| image:: ../_static/image17.png
 .. |image18| image:: ../_static/image18.png
+.. |image19| image:: ../_static/image19.png
 .. |image300| image:: ../_static/image1.png
             :width: 900
 
