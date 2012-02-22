@@ -382,16 +382,64 @@ will be preserved or not:
 ::
 
     def classify_transformation(A):
-       row1col1 = A[0,0]
-       row1col2 = A[0,1]
-       row2col1 = A[1,0]
-       row2col2 = A[1,1]
+       arccos00 = round(arccos(A[0,0]),6)
+       arcsin00 = round(arcsin(A[1,0]),6)
        # check if it is an x-shear:
        if (A[0,0] == 1 and A[1,0] == 0 and A[1,1] == 1):
           a = A[0,1]
-          type = 'x-shear'
-          print(a)
-          print(type)
+          print 'x-shear with factor', a
+       # check if it is a y-shear:
+       elif (A[0,0] == 1 and A[0,1] == 0 and A[1,1] == 1):
+          a = A[1,0]
+          print 'y-shear with factor', a
+       # check if it is a scaling with factors a and b:
+       elif (A[0,1] == 0 and A[1,0] == 0 and A[0,0] != A[1,1]):
+          a = A[0,0]
+          b = A[1,1] 
+          print 'scaling with factors', a, 'and', b
+       # check if it is a rotation anticlockwise by theta radians:
+       elif (A[0,0] == A[1,1] and A[0,1] == -A[1,0] and arccos00 == arcsin00):
+          theta = arccos00
+          fractionofpi = round(theta/pi,6)
+          print 'anticlockwise rotation by angle', fractionofpi, '*pi radians'
+       # check if it is a reflection through a line through the origin at theta radians
+       # to the positive x-axis:
+       elif (A[0,0] == -A[1,1] and A[0,1] == A[1,0] and arccos00 == arcsin00):
+          theta = arccos00/2.0
+          fractionofpi = round(theta/pi,6)
+          print 'reflection through a line through the origin at', fractionofpi, '*pi radians'
+       # find the determinant:
+       detA = det(A)
+       if (detA > 0):
+          orientation = 'preserved'
+       else:
+          orientation = 'not preserved'
+       print 'Areas scaled by', detA, ', orientation', orientation
+
+Let's try it out:
+
+::
+
+       A = matrix([[1,3],[0,1]])
+       classify_transformation(A)
+       # Output:
+       # x-shear with factor 3
+       # Areas scaled by 1 , orientation preserved
+       A = matrix([[0.5,-sqrt(3)/2],[sqrt(3)/2,0.5]])
+       classify_transformation(A)
+       # Output:
+       # anticlockwise rotation by angle 0.333333 *pi radians
+       # Areas scaled by 1.00000000000000 , orientation preserved
+       A = matrix([[0.5,sqrt(3)/2],[sqrt(3)/2,-0.5]])
+       classify_transformation(A)
+       # Output:
+       # reflection through a line through the origin at 0.166667 *pi radians
+       # Areas scaled by -1.00000000000000 , orientation not preserved
+       A = matrix([[3,0],[0,2]])
+       classify_transformation(A)
+       # Output:
+       # scaling with factors 3 and 2
+       # Areas scaled by 6 , orientation preserved
 
 Links and Further Reading
 -------------------------
