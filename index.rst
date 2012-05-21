@@ -14,6 +14,7 @@ Contents:
 
    src/iteration.rst
    src/matrixtransformations.rst
+   src/complexnumbers.rst
 
 Acknowledgements
 ----------------
