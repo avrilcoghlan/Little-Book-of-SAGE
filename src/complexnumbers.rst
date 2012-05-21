@@ -22,6 +22,8 @@ I would highly recommend the Open University book “Complex numbers” (product
 Adding, subtracting, multiplying and dividing complex numbers
 -------------------------------------------------------------
 
+Since Pythagoras, we know that :math:`a^2 + b^2 = c^2`.
+
 In SAGE, we can use the symbol *i* in complex numbers, where:
 
 .. math::
